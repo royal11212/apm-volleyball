@@ -4,61 +4,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ВК «АПМ РФ» | Официальный сайт волейбольной команды</title>
+  <title>ВК «АПМ РФ» | Официальный сайт</title>
+  
+  <!-- Основные стили -->
   <link rel="stylesheet" href="style.css" />
-  <!-- Виджет Netlify Identity для авторизации -->
+  
+  <!-- Шрифты Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Виджет Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <style>
-    /* Базовая стилизация формы, если нет style.css */
-    body { font-family: sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
-    .form-container { max-width: 500px; margin: 40px auto; padding: 20px; background: #1b261d; border-radius: 8px; text-align: center; }
-    .form-group { margin-bottom: 15px; text-align: left; }
-    .form-group label { display: block; margin-bottom: 5px; font-size: 14px; }
-    .form-group input, .form-group select { width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #fff; color: #000; box-sizing: border-box; }
-    button.submit-btn { width: 100%; padding: 12px; background: #c59b27; border: none; border-radius: 4px; color: #000; font-weight: bold; cursor: pointer; }
-    button.submit-btn:hover { background: #d4a92c; }
-  </style>
 </head>
 <body>
 
-  <header style="text-align: center;">
-    <h1>Волейбольный клуб «АПМ РФ»</h1>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h2>ВК «АПМ РФ»</h2>
+      </div>
+      <nav class="nav">
+        <a href="#about">О команде</a>
+        <a href="#roster">Состав</a>
+        <a href="#matches">Матчи</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="form-container">
-      <h2>Хотите присоединиться или организовать товарняк?</h2>
-      <p>Оставьте заявку, и мы свяжемся с вами</p>
+  <!-- Блок "Матчи / Соперник" -->
+  <section id="matches" class="section">
+    <div class="container">
+      <div class="match-card" style="text-align: center; margin-bottom: 40px;">
+        <h2><strong>АПМ РФ</strong> <span style="color: #c59b27;">VS</span> Соперник</h2>
+      </div>
+    </div>
+  </section>
 
-      <!-- Форма с интеграцией Netlify Forms (data-netlify="true") -->
-      <form name="contact" method="POST" data-netlify="true">
-        <!-- Обязательное скрытое поле для Netlify -->
-        <input type="hidden" name="form-name" value="contact" />
+  <!-- Секция формы с вашим интерфейсом и рабочей отправкой -->
+  <section id="contact" class="section form-section">
+    <div class="container">
+      <div class="form-container">
+        <h2>Хотите присоединиться или организовать товарняк?</h2>
+        <p>Оставьте заявку, и мы свяжемся с вами</p>
 
-        <div class="form-group">
-          <input type="text" name="name" placeholder="Ваше имя" required />
-        </div>
+        <!-- Форма обратной связи с поддержкой Netlify Forms -->
+        <form name="contact" method="POST" data-netlify="true" id="ajaxForm">
+          <!-- Обязательное скрытое поле для Netlify -->
+          <input type="hidden" name="form-name" value="contact" />
 
-        <div class="form-group">
-          <input type="text" name="contact" placeholder="@telegram / телефон" required />
-        </div>
+          <div class="form-group">
+            <input type="text" name="name" id="userName" placeholder="ivan" required />
+          </div>
 
-        <div class="form-group">
-          <select name="subject" required>
-            <option value="Товарищеский матч">Товарищеский матч</option>
-            <option value="Вступление в команду">Вступление в команду</option>
-            <option value="Сотрудничество / Спонсорство" selected>Сотрудничество / Спонсорство</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <input type="text" name="contact" id="userContact" placeholder="@jfjjbyhuefb" required />
+          </div>
 
-        <button type="submit" class="submit-btn">Отправить заявку</button>
-      </form>
-    </section>
-  </main>
+          <div class="form-group">
+            <select name="subject" id="userSubject" required>
+              <option value="Товарищеский матч">Товарищеский матч</option>
+              <option value="Вступление в команду">Вступление в команду</option>
+              <option value="Сотрудничество / Спонсорство" selected>Сотрудничество / Спонсорство</option>
+            </select>
+          </div>
 
-  <footer style="text-align: center; margin-top: 40px; font-size: 12px; opacity: 0.7;">
-    <p>&copy; 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
+          <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
+          
+          <!-- Блок вывода статуса отправки -->
+          <div id="formStatus" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container" style="text-align: center; padding: 20px 0;">
+      <p>© 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
+    </div>
   </footer>
+
+  <!-- Скрипт отправки без ошибок соединения -->
+  <script>
+    const form = document.getElementById('ajaxForm');
+    const formStatus = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        formStatus.style.display = 'block';
+
+        if (response.ok) {
+          formStatus.style.color = '#4CAF50';
+          formStatus.innerText = '✓ Заявка успешно отправлена!';
+          form.reset();
+        } else {
+          throw new Error('Ошибка сервера');
+        }
+      } catch (error) {
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#ff4d4d';
+        formStatus.innerText = '✕ Ошибка отправки. Попробуйте еще раз.';
+      }
+    });
+  </script>
 
 </body>
 </html>
