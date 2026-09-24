@@ -1,10 +1,10 @@
-
+Ares, [24.09.2026 14:39]
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ВК «АПМ РФ» | Официальный сайт</title>
+  <title>ВК «АПМ РФ» | Официальный сайт волейбольной команды</title>
   
   <!-- Основные стили -->
   <link rel="stylesheet" href="style.css" />
@@ -34,33 +34,87 @@
     </div>
   </header>
 
-  <!-- Блок "Матчи / Соперник" -->
-  <section id="matches" class="section">
+  <!-- Главный баннер -->
+  <section class="hero">
     <div class="container">
-      <div class="match-card" style="text-align: center; margin-bottom: 40px;">
-        <h2><strong>АПМ РФ</strong> <span style="color: #c59b27;">VS</span> Соперник</h2>
+      <h1>Волейбольный клуб «АПМ РФ»</h1>
+      <p>Сила, командный дух и стремление к победе</p>
+      <a href="#contact" class="btn">Присоединиться</a>
+    </div>
+  </section>
+
+  <!-- Секция "О команде" -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">О команде</h2>
+      <p class="section-desc">Любительский волейбольный клуб «АПМ РФ». Мы объединяем игроков, увлеченных спортом, постоянным самосовершенствованием и командными играми.</p>
+    </div>
+  </section>
+
+  <!-- Секция "Состав команды" -->
+  <section id="roster" class="section bg-alt">
+    <div class="container">
+      <h2 class="section-title">Состав команды</h2>
+      <div class="roster-grid">
+        <div class="player-card">
+          <div class="player-photo"></div>
+          <h3>Игрок 1</h3>
+          <p class="position">Доигровщик</p>
+        </div>
+        <div class="player-card">
+          <div class="player-photo"></div>
+          <h3>Игрок 2</h3>
+          <p class="position">Связующий</p>
+        </div>
+        <div class="player-card">
+          <div class="player-photo"></div>
+          <h3>Игрок 3</h3>
+          <p class="position">Центральный блокирующий</p>
+        </div>
+        <div class="player-card">
+          <div class="player-photo"></div>
+          <h3>Игрок 4</h3>
+          <p class="position">Диагональный</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Секция формы с вашим интерфейсом и рабочей отправкой -->
+  <!-- Секция "Матчи" -->
+  <section id="matches" class="section">
+    <div class="container">
+      <h2 class="section-title">Расписание и результаты</h2>
+      <div class="match-list">
+        <div class="match-item">
+          <div class="match-teams">
+            <span class="team-name">АПМ РФ</span>
+            <span class="vs">VS</span>
+            <span class="team-name">Соперник</span>
+          </div>
+          <div class="match-status">Ближайший матч</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция с формой обратной связи -->
   <section id="contact" class="section form-section">
     <div class="container">
       <div class="form-container">
         <h2>Хотите присоединиться или организовать товарняк?</h2>
         <p>Оставьте заявку, и мы свяжемся с вами</p>
 
-        <!-- Форма обратной связи с поддержкой Netlify Forms -->
-        <form name="contact" method="POST" data-netlify="true" id="ajaxForm">
-          <!-- Обязательное скрытое поле для Netlify -->
+        <!-- Рабочая форма с Netlify Forms -->
+        <form name="contact" method="POST" data-netlify="true" id="volleyballForm">
+          <!-- Скрытое поле обязательное для Netlify -->
           <input type="hidden" name="form-name" value="contact" />
 
           <div class="form-group">
-            <input type="text" name="name" id="userName" placeholder="ivan" required />
+            <input type="text" name="name" id="userName" placeholder="Ваше имя" required />
           </div>
 
           <div class="form-group">
-            <input type="text" name="contact" id="userContact" placeholder="@jfjjbyhuefb" required />
+            <input type="text" name="contact" id="userContact" placeholder="@telegram / телефон" required />
           </div>
 
           <div class="form-group">
@@ -73,23 +127,22 @@
 
           <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
           
-          <!-- Блок вывода статуса отправки -->
           <div id="formStatus" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Футер -->
+  <!-- Подвал сайта -->
   <footer class="footer">
     <div class="container" style="text-align: center; padding: 20px 0;">
-      <p>© 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
+      <p>&copy; 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
     </div>
   </footer>
 
-  <!-- Скрипт отправки без ошибок соединения -->
+  <!-- Скрипт отправки формы без ошибок API -->
   <script>
-    const form = document.getElementById('ajaxForm');
+    const form = document.getElementById('volleyballForm');
     const formStatus = document.getElementById('formStatus');
 
     form.addEventListener('submit', async function(e) {
