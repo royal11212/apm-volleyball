@@ -2,221 +2,63 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ВК «АПМ РФ» — Волейбольная команда</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ВК «АПМ РФ» | Официальный сайт волейбольной команды</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Виджет Netlify Identity для авторизации -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    /* Базовая стилизация формы, если нет style.css */
+    body { font-family: sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
+    .form-container { max-width: 500px; margin: 40px auto; padding: 20px; background: #1b261d; border-radius: 8px; text-align: center; }
+    .form-group { margin-bottom: 15px; text-align: left; }
+    .form-group label { display: block; margin-bottom: 5px; font-size: 14px; }
+    .form-group input, .form-group select { width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #fff; color: #000; box-sizing: border-box; }
+    button.submit-btn { width: 100%; padding: 12px; background: #c59b27; border: none; border-radius: 4px; color: #000; font-weight: bold; cursor: pointer; }
+    button.submit-btn:hover { background: #d4a92c; }
+  </style>
 </head>
 <body>
 
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <span class="logo-main">АПМ РФ</span>
-                <span class="logo-sub">VOLLEYBALL TEAM</span>
-            </div>
-            <nav class="nav">
-                <a href="#about">О команде</a>
-                <a href="#roster">Состав</a>
-                <a href="#matches">Матчи</a>
-                <a href="#join" class="btn-primary">Вступить</a>
-            </nav>
-        </div>
-    </header>
+  <header style="text-align: center;">
+    <h1>Волейбольный клуб «АПМ РФ»</h1>
+  </header>
 
-    <!-- Главный баннер -->
-    <section class="hero">
-        <div class="container hero-content">
-            <span class="badge">Официальный сайт</span>
-            <h1>Волейбольная команда <br><span class="accent-text">«АПМ РФ»</span></h1>
-            <p>Ассоциация предпринимателей мусульман Российской Федерации</p>
-            <div class="hero-btns">
-                <a href="#matches" class="btn-gold">Ближайшие игры</a>
-                <a href="#roster" class="btn-outline">Наш состав</a>
-            </div>
+  <main>
+    <section class="form-container">
+      <h2>Хотите присоединиться или организовать товарняк?</h2>
+      <p>Оставьте заявку, и мы свяжемся с вами</p>
+
+      <!-- Форма с интеграцией Netlify Forms (data-netlify="true") -->
+      <form name="contact" method="POST" data-netlify="true">
+        <!-- Обязательное скрытое поле для Netlify -->
+        <input type="hidden" name="form-name" value="contact" />
+
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Ваше имя" required />
         </div>
+
+        <div class="form-group">
+          <input type="text" name="contact" placeholder="@telegram / телефон" required />
+        </div>
+
+        <div class="form-group">
+          <select name="subject" required>
+            <option value="Товарищеский матч">Товарищеский матч</option>
+            <option value="Вступление в команду">Вступление в команду</option>
+            <option value="Сотрудничество / Спонсорство" selected>Сотрудничество / Спонсорство</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Отправить заявку</button>
+      </form>
     </section>
+  </main>
 
-    <!-- О команде -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">О команде</h2>
-            <p class="section-desc">
-                Волейбольная команда «АПМ РФ» объединяет спортсменов и единомышленников, 
-                представляющих Ассоциацию предпринимателей мусульман РФ. Наша цель — продвижение 
-                здорового образа жизни, командного духа и высоких спортивных результатов.
-            </p>
-        </div>
-    </section>
+  <footer style="text-align: center; margin-top: 40px; font-size: 12px; opacity: 0.7;">
+    <p>&copy; 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
+  </footer>
 
-    <!-- Состав команды -->
-    <section id="roster" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Состав команды</h2>
-            <div class="roster-grid">
-                
-                <!-- Игрок 1 -->
-                <div class="player-card">
-                    <div class="player-photo">
-                        <img src="images/player1.jpg" alt="Игрок 1" onerror="this.src='https://via.placeholder.com/300x400/0b3c26/ffffff?text=Фото+Игрока'">
-                        <span class="player-number">#1</span>
-                    </div>
-                    <div class="player-info">
-                        <span class="player-role">Связующий</span>
-                        <h3>Имя Фамилия</h3>
-                        <p class="player-stats">Рост: 185 см | Съем: 310 см</p>
-                    </div>
-                </div>
-
-                <!-- Игрок 2 -->
-                <div class="player-card">
-                    <div class="player-photo">
-                        <img src="images/player2.jpg" alt="Игрок 2" onerror="this.src='https://via.placeholder.com/300x400/0b3c26/ffffff?text=Фото+Игрока'">
-                        <span class="player-number">#7</span>
-                    </div>
-                    <div class="player-info">
-                        <span class="player-role">Доигровщик</span>
-                        <h3>Имя Фамилия</h3>
-                        <p class="player-stats">Рост: 192 см | Съем: 330 см</p>
-                    </div>
-                </div>
-
-                <!-- Игрок 3 -->
-                <div class="player-card">
-                    <div class="player-photo">
-                        <img src="images/player3.jpg" alt="Игрок 3" onerror="this.src='https://via.placeholder.com/300x400/0b3c26/ffffff?text=Фото+Игрока'">
-                        <span class="player-number">#10</span>
-                    </div>
-                    <div class="player-info">
-                        <span class="player-role">Центральный блокирующий</span>
-                        <h3>Имя Фамилия</h3>
-                        <p class="player-stats">Рост: 198 см | Съем: 340 см</p>
-                    </div>
-                </div>
-
-                <!-- Игрок 4 -->
-                <div class="player-card">
-                    <div class="player-photo">
-                        <img src="images/player4.jpg" alt="Игрок 4" onerror="this.src='https://via.placeholder.com/300x400/0b3c26/ffffff?text=Фото+Игрока'">
-                        <span class="player-number">#13</span>
-                    </div>
-                    <div class="player-info">
-                        <span class="player-role">Диагональный</span>
-                        <h3>Имя Фамилия</h3>
-                        <p class="player-stats">Рост: 195 см | Съем: 335 см</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Расписание и результаты -->
-    <section id="matches" class="section">
-        <div class="container">
-            <h2 class="section-title">Календарь игр</h2>
-            <div class="matches-list">
-                <div class="match-card">
-                    <div class="match-date">Предстоящий матч</div>
-                    <div class="match-teams">
-                        <span class="team my-team">АПМ РФ</span>
-                        <span class="vs">VS</span>
-                        <span class="team opponent">Соперник</span>
-                    </div>
-                    <div class="match-info">Суббота, 18:00 | Спорткомплекс</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Форма обратной связи -->
-    <section id="join" class="section bg-dark">
-        <div class="container form-container">
-            <h2>Хотите присоединиться или организовать товарняк?</h2>
-            <p>Оставьте заявку, и мы свяжемся с вами</p>
-            
-            <form class="contact-form" id="tgForm">
-                <input type="text" id="name" placeholder="Ваше имя" required>
-                <input type="tel" id="phone" placeholder="Телефон / Ссылка на Telegram" required>
-                <select id="requestType">
-                    <option value="Хочу в команду (Игрок)">Хочу в команду (Игрок)</option>
-                    <option value="Товарищеская игра">Товарищеская игра</option>
-                    <option value="Сотрудничество / Спонсорство">Сотрудничество / Спонсорство</option>
-                </select>
-                <button type="submit" class="btn-gold" id="submitBtn">Отправить заявку</button>
-            </form>
-            <div id="statusMessage" style="margin-top: 15px; font-weight: 600;"></div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
-        </div>
-    </footer>
-
-    <!-- Скрипт отправки формы в Telegram -->
-    <script>
-        var TELEGRAM_BOT_TOKEN = '8956321435:AAF-UyAhEUKrsiENQK2qxa_A6LXqwx4tL7k'; 
-        var TELEGRAM_CHAT_ID = '1976860970'; 
-
-        document.getElementById('tgForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            var name = document.getElementById('name').value;
-            var phone = document.getElementById('phone').value;
-            var requestType = document.getElementById('requestType').value;
-            var btn = document.getElementById('submitBtn');
-            var status = document.getElementById('statusMessage');
-
-            btn.disabled = true;
-            btn.innerText = 'Отправка...';
-            status.innerText = '';
-
-            var message = '🔥 *Новая заявка с сайта ВК «АПМ РФ»*:\n\n' +
-                          '👤 *Имя:* ' + name + '\n' +
-                          '📞 *Контакты:* ' + phone + '\n' +
-                          '🎯 *Цель:* ' + requestType;
-
-
-fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
-            })
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                if (data.ok) {
-                    status.style.color = '#4ADE80';
-                    status.innerText = '✅ Заявка успешно отправлена!';
-                    document.getElementById('tgForm').reset();
-                } else {
-                    status.style.color = '#F87171';
-                    status.innerText = '❌ Ошибка отправки: ' + (data.description || 'Проверьте start в боте');
-                }
-            })
-            .catch(function(error) {
-                status.style.color = '#F87171';
-                status.innerText = '❌ Ошибка соединения.';
-            })
-            .finally(function() {
-                btn.disabled = false;
-                btn.innerText = 'Отправить заявку';
-            });
-        });
-    </script>
 </body>
 </html>
