@@ -1,4 +1,4 @@
-Ares, [24.09.2026 14:39]
+Ares, [24.09.2026 14:42]
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +6,7 @@ Ares, [24.09.2026 14:39]
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ВК «АПМ РФ» | Официальный сайт волейбольной команды</title>
   
-  <!-- Основные стили -->
+  <!-- Подключение стилей -->
   <link rel="stylesheet" href="style.css" />
   
   <!-- Шрифты Google Fonts -->
@@ -19,130 +19,56 @@ Ares, [24.09.2026 14:39]
 </head>
 <body>
 
-  <!-- Шапка сайта -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <h2>ВК «АПМ РФ»</h2>
-      </div>
-      <nav class="nav">
-        <a href="#about">О команде</a>
-        <a href="#roster">Состав</a>
-        <a href="#matches">Матчи</a>
-        <a href="#contact">Контакты</a>
-      </nav>
+  <!-- Блок с заголовком и карточкой матча -->
+  <header style="text-align: center; padding: 40px 20px 20px 20px;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 800;">Волейбольный клуб «АПМ РФ»</h1>
+    <div style="font-size: 1.8rem; font-weight: 700; margin-top: 10px;">
+      <span>АПМ РФ</span> <span style="color: #c59b27; margin: 0 10px;">VS</span> <span>Соперник</span>
     </div>
   </header>
 
-  <!-- Главный баннер -->
-  <section class="hero">
-    <div class="container">
-      <h1>Волейбольный клуб «АПМ РФ»</h1>
-      <p>Сила, командный дух и стремление к победе</p>
-      <a href="#contact" class="btn">Присоединиться</a>
-    </div>
-  </section>
+  <!-- Форма обратной связи в оригинальном стиле -->
+  <main>
+    <section class="form-container" style="max-width: 500px; margin: 30px auto; padding: 30px 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); text-align: center;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 10px;">Хотите присоединиться или организовать товарняк?</h2>
+      <p style="opacity: 0.8; margin-bottom: 25px;">Оставьте заявку, и мы свяжемся с вами</p>
 
-  <!-- Секция "О команде" -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">О команде</h2>
-      <p class="section-desc">Любительский волейбольный клуб «АПМ РФ». Мы объединяем игроков, увлеченных спортом, постоянным самосовершенствованием и командными играми.</p>
-    </div>
-  </section>
+      <!-- Рабочая форма с Netlify Forms -->
+      <form name="contact" method="POST" data-netlify="true" id="appForm">
+        <!-- Обязательное скрытое поле Netlify -->
+        <input type="hidden" name="form-name" value="contact" />
 
-  <!-- Секция "Состав команды" -->
-  <section id="roster" class="section bg-alt">
-    <div class="container">
-      <h2 class="section-title">Состав команды</h2>
-      <div class="roster-grid">
-        <div class="player-card">
-          <div class="player-photo"></div>
-          <h3>Игрок 1</h3>
-          <p class="position">Доигровщик</p>
+        <div style="margin-bottom: 15px;">
+          <input type="text" name="name" id="userName" placeholder="ivan" required style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #444; background: #fff; color: #000; box-sizing: border-box; font-size: 1rem;" />
         </div>
-        <div class="player-card">
-          <div class="player-photo"></div>
-          <h3>Игрок 2</h3>
-          <p class="position">Связующий</p>
+
+        <div style="margin-bottom: 15px;">
+          <input type="text" name="contact" id="userContact" placeholder="@jfjjbyhuefb" required style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #444; background: #fff; color: #000; box-sizing: border-box; font-size: 1rem;" />
         </div>
-        <div class="player-card">
-          <div class="player-photo"></div>
-          <h3>Игрок 3</h3>
-          <p class="position">Центральный блокирующий</p>
+
+        <div style="margin-bottom: 20px;">
+          <select name="subject" id="userSubject" required style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #444; background: #fff; color: #000; box-sizing: border-box; font-size: 1rem; cursor: pointer;">
+            <option value="Товарищеский матч">Товарищеский матч</option>
+            <option value="Вступление в команду">Вступление в команду</option>
+            <option value="Сотрудничество / Спонсорство" selected>Сотрудничество / Спонсорство</option>
+          </select>
         </div>
-        <div class="player-card">
-          <div class="player-photo"></div>
-          <h3>Игрок 4</h3>
-          <p class="position">Диагональный</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Секция "Матчи" -->
-  <section id="matches" class="section">
-    <div class="container">
-      <h2 class="section-title">Расписание и результаты</h2>
-      <div class="match-list">
-        <div class="match-item">
-          <div class="match-teams">
-            <span class="team-name">АПМ РФ</span>
-            <span class="vs">VS</span>
-            <span class="team-name">Соперник</span>
-          </div>
-          <div class="match-status">Ближайший матч</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <button type="submit" style="width: 100%; padding: 14px; background: #c59b27; border: none; border-radius: 6px; color: #000; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#d4a92c'" onmouseout="this.style.background='#c59b27'">Отправить заявку</button>
+        
+        <div id="formStatus" style="margin-top: 15px; font-weight: 700; display: none;"></div>
+      </form>
+    </section>
+  </main>
 
-  <!-- Секция с формой обратной связи -->
-  <section id="contact" class="section form-section">
-    <div class="container">
-      <div class="form-container">
-        <h2>Хотите присоединиться или организовать товарняк?</h2>
-        <p>Оставьте заявку, и мы свяжемся с вами</p>
-
-        <!-- Рабочая форма с Netlify Forms -->
-        <form name="contact" method="POST" data-netlify="true" id="volleyballForm">
-          <!-- Скрытое поле обязательное для Netlify -->
-          <input type="hidden" name="form-name" value="contact" />
-
-          <div class="form-group">
-            <input type="text" name="name" id="userName" placeholder="Ваше имя" required />
-          </div>
-
-          <div class="form-group">
-            <input type="text" name="contact" id="userContact" placeholder="@telegram / телефон" required />
-          </div>
-
-          <div class="form-group">
-            <select name="subject" id="userSubject" required>
-              <option value="Товарищеский матч">Товарищеский матч</option>
-              <option value="Вступление в команду">Вступление в команду</option>
-              <option value="Сотрудничество / Спонсорство" selected>Сотрудничество / Спонсорство</option>
-            </select>
-          </div>
-
-          <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
-          
-          <div id="formStatus" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Подвал сайта -->
-  <footer class="footer">
-    <div class="container" style="text-align: center; padding: 20px 0;">
-      <p>&copy; 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
-    </div>
+  <!-- Футер -->
+  <footer style="text-align: center; padding: 30px 10px; font-size: 0.85rem; opacity: 0.7;">
+    <p>&copy; 2026 Волейбольный клуб «АПМ РФ». Все права защищены.</p>
   </footer>
 
-  <!-- Скрипт отправки формы без ошибок API -->
+  <!-- Скрипт отправки без ошибок API / CORS -->
   <script>
-    const form = document.getElementById('volleyballForm');
+    const form = document.getElementById('appForm');
     const formStatus = document.getElementById('formStatus');
 
     form.addEventListener('submit', async function(e) {
@@ -164,7 +90,7 @@ Ares, [24.09.2026 14:39]
           formStatus.innerText = '✓ Заявка успешно отправлена!';
           form.reset();
         } else {
-          throw new Error('Ошибка сервера');
+          throw new Error('Ошибка при отправке');
         }
       } catch (error) {
         formStatus.style.display = 'block';
